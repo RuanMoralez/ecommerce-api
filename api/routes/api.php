@@ -26,12 +26,13 @@ Route::get('/auth/products', 'Api\\ProductController@index');
 Route::post('auth/login', 'Api\\UserController@login');
 Route::post('auth/register', 'Api\\UserController@register');
 
+
 // Middleware Routes
 Route::group(['middleware' => 'apiJWT'], function(){
     //User routes
-    Route::get('auth/users', 'Api\\UserController@index');
     Route::post('auth/logout', 'Api\\UserController@logout');
     Route::delete('auth/destroy/{user}', 'Api\\UserController@destroy');
+    Route::get('auth/users', 'Api\\UserController@index');
 
     // Product routes
     Route::post('auth/products/register', 'Api\\ProductController@register');
