@@ -11,6 +11,15 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // return users data
+    public function index()
+    {
+        $users = User::all();
+
+        return response()->json($users);
+    }
+
+
     /**
      * Register a User.
      *
