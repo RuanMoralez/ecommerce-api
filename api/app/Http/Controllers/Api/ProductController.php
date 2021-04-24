@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
-    protected $user;
+    // user necessited  logged for be get products
+    // protected $user;
 
-    public function __construct()
-    {
-        $this->user = JWTAuth::parseToken()->authenticate();
-    }
+    // public function __construct()
+    // {
+    //     $this->user = JWTAuth::parseToken()->authenticate();
+    // }
+
+    
 
     /**
      * Display a listing of the resource.

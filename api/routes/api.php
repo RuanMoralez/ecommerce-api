@@ -23,15 +23,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/auth/products', 'Api\\ProductController@index');
 
 // User routes
-Route::post('auth/login', 'Api\\AuthController@login');
-Route::post('auth/register', 'Api\\AuthController@register');
+Route::post('auth/login', 'Api\\UserController@login');
+Route::post('auth/register', 'Api\\UserController@register');
+
 
 // Middleware Routes
 Route::group(['middleware' => 'apiJWT'], function(){
     //User routes
+    Route::post('auth/logout', 'Api\\UserController@logout');
+    Route::delete('auth/destroy/{user}', 'Api\\UserController@destroy');
     Route::get('auth/users', 'Api\\UserController@index');
-    Route::post('auth/logout', 'Api\\AuthController@logout');
-    Route::delete('auth/destroy/{user}', 'Api\\AuthController@destroy');
 
     // Product routes
     Route::post('auth/products/register', 'Api\\ProductController@register');
