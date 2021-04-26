@@ -64,11 +64,12 @@ class UserController extends Controller
         return response()->json([
             'user' => [
                 'id' => $user->id,
+                'role' => $user->role,
                 'name' => $user->name,
                 'email' => $user->email,
             ],
             'token' => $this->respondWithToken($token)
-        ]);
+        ], 200);
     }
 
     /**
